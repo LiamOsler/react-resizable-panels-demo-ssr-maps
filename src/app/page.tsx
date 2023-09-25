@@ -1,4 +1,4 @@
-import ClientComponent from "@/app/ClientComponent";
+import PanelComponent from "@/app/components/PanelComponent";
 import { cookies } from "next/headers";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
         <code>localStorage</code> to persist the last layout value. Resize the
         panel below and then reload the page to see.
       </p>
-      <ClientComponent defaultLayout={defaultLayout} />
+      <PanelComponent defaultLayout={defaultLayout} />
     </main>
   );
 }
