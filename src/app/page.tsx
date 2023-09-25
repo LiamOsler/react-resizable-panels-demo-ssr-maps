@@ -5,12 +5,7 @@ export default function Home() {
   const defaultLayout = getDefaultLayout();
 
   return (
-    <main className="h-48 p-1">
-      <p>
-        This component uses both <code>cookies</code> and{" "}
-        <code>localStorage</code> to persist the last layout value. Resize the
-        panel below and then reload the page to see.
-      </p>
+    <main className="h-screen p-0 bg-slate-200">
       <PanelComponent defaultLayout={defaultLayout} />
     </main>
   );
