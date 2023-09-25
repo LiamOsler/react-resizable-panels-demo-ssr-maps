@@ -20,17 +20,19 @@ function MyComponent() {
     googleMapsApiKey: apiKey
   })
 
-  const [map, setMap] = React.useState(null)
+  const [map, setMap] = React.useState<google.maps.Map | null>(null) // Fix: add type annotation to map state
 
-  const onLoad = React.useCallback(function callback(map) {
+  const onLoad = React.useCallback(function callback(map: google.maps.Map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    if (map) {
+      map.fitBounds(bounds);
+      setMap(null);
+      setMap(map);
+    }
+  }, [center])
 
-    setMap(map)
-  }, [])
-
-  const onUnmount = React.useCallback(function callback(map) {
+  const onUnmount = React.useCallback(function callback(map: google.maps.Map) {
     setMap(null)
   }, [])
 
